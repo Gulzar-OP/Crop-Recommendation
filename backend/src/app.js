@@ -24,7 +24,7 @@ app.get("/api/v1/health", (req, res) =>
 app.get("/", (req, res) => {
   res.json({
     success: true,
-    message: "Crop Recommendation Backend is running"
+    message: "Crop Recommendation Backend is running",
   });
 });
 app.use((req, res) =>
@@ -36,11 +36,9 @@ app.use((error, req, res, next) => {
     return res
       .status(409)
       .json({ success: false, message: "Email already registered" });
-  return res
-    .status(error.status || 500)
-    .json({
-      success: false,
-      message: error.status ? error.message : "Internal server error",
-    });
+  return res.status(error.status || 500).json({
+    success: false,
+    message: error.status ? error.message : "Internal server error",
+  });
 });
 export default app;
