@@ -21,6 +21,12 @@ app.use("/api/v1/crops", cropRoutes);
 app.get("/api/v1/health", (req, res) =>
   res.json({ status: "healthy", service: "node-api" }),
 );
+app.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "Crop Recommendation Backend is running"
+  });
+});
 app.use((req, res) =>
   res.status(404).json({ success: false, message: "Route not found" }),
 );

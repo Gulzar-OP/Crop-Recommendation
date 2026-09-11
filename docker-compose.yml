@@ -24,11 +24,11 @@ services:
     environment:
       PORT: 8000
       NODE_ENV: development
-      MONGODB_URI: mongodb://mongodb:27017/crop_recommendation
+      MONGODB_URI: ${MONGODB_URI}
       JWT_SECRET: ${JWT_SECRET:-replace-this-before-production}
       JWT_EXPIRES_IN: 7d
-      FRONTEND_URL: http://localhost:5173
-      ML_SERVICE_URL: http://ml-service:8001
+      FRONTEND_URL: ${FRONTEND_URL}
+      ML_SERVICE_URL: ${ML_SERVICE_URL}
       ML_INTERNAL_API_KEY: ${ML_INTERNAL_API_KEY:-development-ml-key}
     ports:
       - "8000:8000"
